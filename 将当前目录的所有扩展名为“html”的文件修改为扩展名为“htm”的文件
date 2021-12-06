@@ -1,0 +1,12 @@
+#
+# import os
+# #注意路径问题
+# file_list=os.listdir(".")
+# for filename in file_list:
+#     pos=filename.find(".")
+#     # 这里有一个 find函数，用来查找 .
+#     if filename[pos+1:]=="html":
+#         # pos+1 :  表示切片，后缀必须要是html
+#         newname=filename[:pos+1]+"htm"
+#         os.rename(filename,newname)
+#         print(filename+"更名为:"+newname)
