@@ -1,0 +1,25 @@
+# import os
+# #注意路径问题
+# repeat =0
+# count_lines = 0
+# file_list=os.listdir(".")
+# for filename in file_list:
+#     pos=filename.find(".")
+#     # 这里有一个 find函数，用来查找 .
+#     if filename[pos+1:]=="cc":
+#         # pos+1 :  表示切片，后缀必须要是cc,即查找c++文件
+#        with open(filename,'r') as f1:
+#            context = f1.readlines()
+#            # 多行读取，方便一行一行的比对
+#            print ( context )
+# for line in context:
+#     count_lines = count_lines+1
+#     # 一行一行的遍历
+#     temp = line
+#     count1 = context.count(temp)
+#     # 一行一行的比对
+#     if count1 < 2:
+#         repeat = repeat+1
+# #         如果不重复则至少出现一次
+# print(count_lines-repeat)
+# # 重复总行数减去不重复的行数，有点不严谨
