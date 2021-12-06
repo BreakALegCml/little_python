@@ -1,0 +1,11 @@
+import re
+# 导入正则的一个模板
+from docx import Document
+# 导入一个模板，来使用doc文件
+doc =Document('testdoc.docx')
+text = ''.join( (p.text for p in doc.paragraphs) )
+# 把内容放到text里面
+result = re.findall(r'(([\u4e00-\u9fa5、！：；，]).?\2)',text)
+# 写一个正则来判断是否是重复的词
+for word in result:
+    print(word[0])
