@@ -1,0 +1,11 @@
+# import os
+# #注意路径问题
+# file_list=os.listdir(".")
+# for filename in file_list:
+#     pos=filename.find(".")
+#     # 这里有一个 find函数，用来查找 .
+#     if filename[pos+1:]=="gif":
+#         # pos+1 :  表示切片，后缀必须要是gif
+#         print ( filename+'    '  +'这是gif文件' )
+#     else:
+#         print ( filename+'     '+'这不是gif文件' )
