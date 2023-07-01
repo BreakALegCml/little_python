@@ -1,0 +1,31 @@
+#从原始文本中提取含有《》的文本行
+f1=open("movie_name.txt",'r',encoding= 'utf-8');
+line1=f1.readline();
+while line1:
+    str_line1=str(line1)
+    if "《" in str_line1:
+
+        f2=open("have_two_char.txt",'a',encoding= 'utf-8')
+        #print(str_line1)
+        f2.write(str_line1+"\n")
+        f2.close()
+    line1 = f1.readline();
+f1.close();
+#去重have_two_char.txt文件中的非电影名文本行、
+
+f3 = open("have_two_char.txt","r",encoding="utf-8");
+line3 = f3.readline();
+while line3:
+    if "." in line3:
+        str_line3=str(line3)
+        f4 = open("final_movie_name.txt",'a',encoding= 'utf-8')
+        f4.write(str_line3)
+        f4.close()
+    line3 = f3.readline();
+f3.close()
+print("+++++++"+"提取完毕"+"+++++++")
+
+
+
+
+
