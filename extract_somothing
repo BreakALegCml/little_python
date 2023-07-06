@@ -1,0 +1,41 @@
+
+import re
+
+# 定义正则表达式模式
+time_pattern = r'<span class="time">(.*?)</span>'
+target_pattern = r'<h3><em>被黑目标：</em>(.*?)</h3>'
+money_pattern = r'<p><span><em>损失金额：</em>(.*?)</span><span><em>'
+method_pattern = r'<em>攻击手法：</em>(.*?)</span></p>'
+
+# 打开各个文本文件，准备写入
+with open('time.txt', 'w', encoding='utf-8') as f_time, \
+     open('target.txt', 'w', encoding='utf-8') as f_target, \
+     open('money.txt', 'w', encoding='utf-8') as f_money, \
+     open('method.txt', 'w', encoding='utf-8') as f_method:
+    
+    # 逐行读取HTML文件内容
+    with open('example.html', 'r', encoding='utf-8') as f:
+        for line in f:
+            # 提取时间信息
+            time_result = re.search(time_pattern, line)
+            if time_result:
+                time_content = time_result.group(1).strip()
+                f_time.write(time_content + '\n')
+            
+            # 提取被黑目标信息
+            target_result = re.search(target_pattern, line)
+            if target_result:
+                target_content = target_result.group(1).strip()
+                f_target.write(target_content + '\n')
+            
+            # 提取损失金额信息
+            money_result = re.search(money_pattern, line)
+            if money_result:
+                money_content = money_result.group(1).strip().split('</span>')[0]
+                f_money.write(money_content + '\n')
+            
+            # 提取攻击手法信息
+            method_result = re.search(method_pattern, line)
+            if method_result:
+                method_content = method_result.group(1).strip()
+                f_method.write(method_content + '\n')
